@@ -161,12 +161,6 @@
       margin-bottom: 36px; min-height: 56px;
       animation: fadeSlideUp 0.7s 0.2s ease both;
     }
-    .cursor {
-      display: inline-block; width: 2px; height: 1.1em;
-      background: var(--accent); margin-left: 2px;
-      animation: blink 0.8s step-end infinite; vertical-align: text-bottom;
-    }
-    @keyframes blink { 50% { opacity: 0; } }
 
     .hero-cta {
       display: flex; gap: 14px; flex-wrap: wrap;
@@ -242,13 +236,15 @@
     .stat-label { font-size: 12px; color: var(--muted); margin-top: 6px; font-weight: 500; }
 
     /* ── SKILLS ── */
-    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; }
     .skill-card {
       background: white; border: 1px solid var(--border);
       border-radius: 16px; padding: 24px;
       box-shadow: var(--shadow);
       transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
     }
+    .skill-card.wide { grid-column: span 2; }
+    .skill-card.wide .cloud-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .skill-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: var(--accent); }
     .skill-card-title {
       font-size: 13px; font-weight: 800; color: var(--accent);
@@ -446,7 +442,7 @@
     </div>
     <div class="about-stats stagger">
       <div class="stat-card">
-        <div class="stat-number" data-target="600">0</div>
+        <div class="stat-number" data-target="1000">0</div>
         <div class="stat-label">SQL Validation Scripts Written</div>
       </div>
       <div class="stat-card">
@@ -479,44 +475,103 @@
     <div class="skill-card">
       <div class="skill-card-title">&#128187; Programming</div>
       <div class="skill-bar-item">
-        <div class="skill-bar-label"><span>Python</span><span>90%</span></div>
-        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div>
+        <div class="skill-bar-label"><span>Python</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="100"></div></div>
       </div>
       <div class="skill-bar-item">
-        <div class="skill-bar-label"><span>SQL</span><span>95%</span></div>
-        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="95"></div></div>
+        <div class="skill-bar-label"><span>SQL</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="100"></div></div>
       </div>
       <div class="skill-bar-item">
-        <div class="skill-bar-label"><span>Java</span><span>65%</span></div>
-        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="65"></div></div>
+        <div class="skill-bar-label"><span>Java</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="100"></div></div>
       </div>
     </div>
 
-    <div class="skill-card">
-      <div class="skill-card-title">&#9729; Cloud — AWS</div>
-      <div class="skill-tags">
-        <span class="tag">S3</span>
-        <span class="tag">EC2</span>
-        <span class="tag">Lambda</span>
-        <span class="tag">Glue</span>
-        <span class="tag">Redshift</span>
-        <span class="tag">EMR</span>
+    <div class="skill-card wide">
+      <div class="skill-card-title">&#9729; Amazon Web Services (AWS) &nbsp;<span style="font-size:10px;background:#ff9900;color:white;padding:2px 7px;border-radius:10px;font-weight:700;letter-spacing:0;">AWS</span></div>
+      <div class="cloud-grid">
+        <div>
+          <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Storage &amp; Compute</div>
+          <div class="skill-tags">
+            <span class="tag">S3</span><span class="tag">EC2</span>
+            <span class="tag">Lambda</span><span class="tag">EBS</span>
+            <span class="tag">ECS</span><span class="tag">EKS</span>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Data &amp; Analytics</div>
+          <div class="skill-tags">
+            <span class="tag">Glue</span><span class="tag">Redshift</span>
+            <span class="tag">EMR</span><span class="tag">Athena</span>
+            <span class="tag">Kinesis</span><span class="tag">Lake Formation</span>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Database</div>
+          <div class="skill-tags">
+            <span class="tag">RDS</span><span class="tag">DynamoDB</span>
+            <span class="tag">Aurora</span>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Security &amp; DevOps</div>
+          <div class="skill-tags">
+            <span class="tag">IAM</span><span class="tag">CloudWatch</span>
+            <span class="tag">CloudTrail</span><span class="tag">CloudFormation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-card wide">
+      <div class="skill-card-title">&#9729; Microsoft Azure &nbsp;<span style="font-size:10px;background:#0078d4;color:white;padding:2px 7px;border-radius:10px;font-weight:700;letter-spacing:0;">Azure</span></div>
+      <div class="cloud-grid">
+        <div>
+          <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Storage &amp; Compute</div>
+          <div class="skill-tags">
+            <span class="tag">Blob Storage</span><span class="tag">Azure VMs</span>
+            <span class="tag">Azure Functions</span><span class="tag">AKS</span>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Data &amp; Analytics</div>
+          <div class="skill-tags">
+            <span class="tag">Data Factory</span><span class="tag">Synapse Analytics</span>
+            <span class="tag">Databricks</span><span class="tag">Data Lake Storage</span>
+            <span class="tag">Stream Analytics</span>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Database</div>
+          <div class="skill-tags">
+            <span class="tag">Azure SQL</span><span class="tag">Cosmos DB</span>
+            <span class="tag">Azure PostgreSQL</span>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Security &amp; DevOps</div>
+          <div class="skill-tags">
+            <span class="tag">Azure AD</span><span class="tag">Key Vault</span>
+            <span class="tag">Azure Monitor</span><span class="tag">Azure DevOps</span>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="skill-card">
       <div class="skill-card-title">&#128202; Databases</div>
       <div class="skill-bar-item">
-        <div class="skill-bar-label"><span>Snowflake</span><span>88%</span></div>
-        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="88"></div></div>
+        <div class="skill-bar-label"><span>Snowflake</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="100"></div></div>
       </div>
       <div class="skill-bar-item">
-        <div class="skill-bar-label"><span>Oracle / Teradata</span><span>80%</span></div>
-        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div>
+        <div class="skill-bar-label"><span>Oracle / Teradata</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="100"></div></div>
       </div>
       <div class="skill-bar-item">
-        <div class="skill-bar-label"><span>PostgreSQL / MySQL</span><span>82%</span></div>
-        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="82"></div></div>
+        <div class="skill-bar-label"><span>PostgreSQL / MySQL</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="100"></div></div>
       </div>
     </div>
 
@@ -534,16 +589,16 @@
     <div class="skill-card">
       <div class="skill-card-title">&#9989; Testing &amp; Automation</div>
       <div class="skill-bar-item">
-        <div class="skill-bar-label"><span>ETL / Data Validation</span><span>95%</span></div>
-        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="95"></div></div>
+        <div class="skill-bar-label"><span>ETL / Data Validation</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="100"></div></div>
       </div>
       <div class="skill-bar-item">
-        <div class="skill-bar-label"><span>Selenium / Robot Framework</span><span>80%</span></div>
-        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div>
+        <div class="skill-bar-label"><span>Selenium / Robot Framework</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="100"></div></div>
       </div>
       <div class="skill-bar-item">
-        <div class="skill-bar-label"><span>API / UI Testing</span><span>75%</span></div>
-        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="75"></div></div>
+        <div class="skill-bar-label"><span>API / UI Testing</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="100"></div></div>
       </div>
     </div>
 
@@ -566,6 +621,7 @@
         <span class="tag">Decision Tree</span>
         <span class="tag">Clustering</span>
         <span class="tag">Time Series</span>
+        <span class="tag">Linear Regression</span>
       </div>
     </div>
 
@@ -588,6 +644,7 @@
         <span class="tag">Claims Adjudication</span>
         <span class="tag">Epic EMR</span>
         <span class="tag">Care Coordination</span>
+        <span class="tag">Data Governance</span>
       </div>
     </div>
 
@@ -611,53 +668,51 @@
           <div class="exp-title">Infinite Computer Solutions</div>
           <div class="exp-period">Oct 2024 &ndash; Present</div>
         </div>
-        <div class="exp-client" style="margin-bottom:20px;">Atlanta, GA</div>
+        <div class="exp-client" style="margin-bottom:24px;">Atlanta, GA</div>
 
+        <!-- Client 1 -->
         <div style="margin-bottom:20px;">
-          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:4px;">
-            <div style="font-size:15px;font-weight:800;">ETL QA Engineer</div>
-            <div class="exp-period">July 2025 &ndash; Present</div>
-          </div>
-          <div class="exp-company" style="margin-bottom:10px;">Client: Blue Cross Blue Shield Association</div>
+          <div style="font-size:15px;font-weight:800;margin-bottom:4px;">ETL QA Engineer</div>
+          <div class="exp-company" style="margin-bottom:10px;">&#9679; Client: Blue Cross Blue Shield Association</div>
           <ul class="exp-bullets">
-            <li>Led end-to-end ETL testing and data validation for the Care Coordination 360 (CC360) project across inbound and outbound healthcare data pipelines.</li>
-            <li>Executed functional, regression, integration, system, and UAT testing across the application.</li>
+            <li>Worked on Care Coordination 360 (CC360) project, performing end-to-end ETL testing and data validation across inbound and outbound healthcare data pipelines.</li>
+            <li>Executed Functional, Regression, Integration, System, and UAT testing on the application.</li>
             <li>Validated field-to-field transformations, business rules, and data mappings using SQL and TOAD, ensuring compliance with healthcare data standards.</li>
-            <li>Monitored and validated batch job executions using Control-M, ensuring successful data loads and timely issue resolution.</li>
-            <li>Used Query IT for complex validation queries and JIRA for defect tracking and cross-team coordination.</li>
+            <li>Utilized Query IT for complex validation queries and JIRA for defect tracking and coordinating resolutions with development teams.</li>
+            <li>Monitored and validated batch job executions using Control-M, ensuring successful job runs, timely data loads, and resolution for failed jobs.</li>
+            <li>Conducted inbound and outbound testing to verify correct data ingestion, transformation, and delivery to external partners.</li>
+            <li>Analyzed data discrepancies, identified root causes, and collaborated with cross-functional teams to improve overall data quality.</li>
           </ul>
         </div>
 
         <hr class="client-divider" />
 
+        <!-- Client 2 -->
         <div style="margin-bottom:20px;">
-          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:4px;">
-            <div style="font-size:15px;font-weight:800;">Data Engineer</div>
-            <div class="exp-period">Feb 2025 &ndash; July 2025</div>
-          </div>
-          <div class="exp-company" style="margin-bottom:10px;">Client: CareFirst Management Company, LLC</div>
+          <div style="font-size:15px;font-weight:800;margin-bottom:4px;">Data Engineer</div>
+          <div class="exp-company" style="margin-bottom:10px;">&#9679; Client: CareFirst Management Company, LLC</div>
           <ul class="exp-bullets">
-            <li>Provided critical analysis and resolution for high-volume 837 and 835 EDI transactions, collaborating with cross-departmental teams and external partners.</li>
-            <li>Managed and optimized critical SQL jobs and batch processes within the Facets G application for healthcare operations.</li>
-            <li>Resolved critical incidents related to medical and dental adjudication claims, restoring operational efficiency.</li>
-            <li>Applied SQL skills to diagnose and rectify data inconsistencies, ensuring precise claims adjudication.</li>
+            <li>Provided critical analysis and resolution for high-volume 837 and 835 EDI transactions, working collaboratively with cross-departmental teams and external partners.</li>
+            <li>Performed in-depth system analysis across diverse software programs, identifying key gaps and documenting complex processes to optimize performance.</li>
+            <li>Managed and optimized critical SQL jobs and batch processes within the Facets G application, ensuring efficient data processing for healthcare operations.</li>
+            <li>Resolved critical incidents across Facets G modules with a focus on medical and dental adjudication claims, restoring operational efficiency.</li>
+            <li>Applied SQL skills to diagnose and rectify data inconsistencies, ensuring precise claims adjudication and application performance.</li>
           </ul>
         </div>
 
         <hr class="client-divider" />
 
+        <!-- Client 3 -->
         <div>
-          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:4px;">
-            <div style="font-size:15px;font-weight:800;">Data Engineer</div>
-            <div class="exp-period">Oct 2024 &ndash; Feb 2025</div>
-          </div>
-          <div class="exp-company" style="margin-bottom:10px;">Client: Elevance Health</div>
+          <div style="font-size:15px;font-weight:800;margin-bottom:4px;">Data Engineer</div>
+          <div class="exp-company" style="margin-bottom:10px;">&#9679; Client: Elevance Health</div>
           <ul class="exp-bullets">
-            <li>Orchestrated ETL pipelines for seamless transfer of patient demographics, clinical data, and claims data between Epic EMR and Facets claims database.</li>
-            <li>Implemented a star schema data warehouse in Snowflake integrating healthcare data from EMRs, claims databases, and patient registries.</li>
-            <li>Maintained a data lake on AWS S3 and implemented governance policies ensuring HIPAA compliance.</li>
-            <li>Optimized data pipelines using AWS Glue and Spark for large-volume healthcare data processing.</li>
-            <li>Developed Python-based testing suites to automatically validate patient demographics and claims data.</li>
+            <li>Orchestrated ETL pipelines facilitating seamless transfers of patient demographics, clinical data, and claims data between Epic EMR and Facets claims database.</li>
+            <li>Implemented a star schema data warehouse in Snowflake integrating healthcare data from EMRs, claims databases, and patient registries, enabling faster claims processing.</li>
+            <li>Optimized data warehouse queries by implementing materialized views, reducing query execution time.</li>
+            <li>Maintained a data lake on AWS S3 for structured, semi-structured, and unstructured healthcare data with HIPAA-compliant data governance policies.</li>
+            <li>Optimized data pipelines using AWS Glue and Spark to process large volumes of healthcare data, enabling patient risk prediction and personalized medicine use cases.</li>
+            <li>Developed and deployed Python-based testing suites to automatically validate patient demographics and claims data moving between Epic EMR and Facets database.</li>
           </ul>
         </div>
 
@@ -780,7 +835,7 @@
 </section>
 
 <footer>
-  <p>Crafted with &#10084; &mdash; Sandeep Appasani &copy; 2026</p>
+  <p>Sandeep Appasani &copy; 2026</p>
 </footer>
 
 <script>
@@ -789,31 +844,30 @@
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
   });
 
-  // ── Typing animation ──
+  // ── Smooth fade animation ──
   const lines = [
     'Data Engineer & ETL QA Specialist',
     'Healthcare Data Pipeline Expert',
     'SQL & Python Automation Engineer',
     'Snowflake & AWS Cloud Professional'
   ];
-  let li = 0, ci = 0, deleting = false;
+  let li = 0;
   const el = document.getElementById('heroSub');
-  el.innerHTML = '<span class="cursor"></span>';
+  el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+  el.textContent = lines[0];
 
-  function type() {
-    const line = lines[li];
-    if (!deleting) {
-      ci++;
-      el.innerHTML = line.slice(0, ci) + '<span class="cursor"></span>';
-      if (ci === line.length) { deleting = true; setTimeout(type, 2000); return; }
-    } else {
-      ci--;
-      el.innerHTML = line.slice(0, ci) + '<span class="cursor"></span>';
-      if (ci === 0) { deleting = false; li = (li + 1) % lines.length; setTimeout(type, 400); return; }
-    }
-    setTimeout(type, deleting ? 40 : 65);
+  function showNext() {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(10px)';
+    setTimeout(() => {
+      li = (li + 1) % lines.length;
+      el.textContent = lines[li];
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+      setTimeout(showNext, 3200);
+    }, 700);
   }
-  setTimeout(type, 800);
+  setTimeout(showNext, 3200);
 
   // ── Scroll reveal ──
   const observer = new IntersectionObserver((entries) => {
