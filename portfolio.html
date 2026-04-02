@@ -161,12 +161,6 @@
       margin-bottom: 36px; min-height: 56px;
       animation: fadeSlideUp 0.7s 0.2s ease both;
     }
-    .cursor {
-      display: inline-block; width: 2px; height: 1.1em;
-      background: var(--accent); margin-left: 2px;
-      animation: blink 0.8s step-end infinite; vertical-align: text-bottom;
-    }
-    @keyframes blink { 50% { opacity: 0; } }
 
     .hero-cta {
       display: flex; gap: 14px; flex-wrap: wrap;
@@ -446,7 +440,7 @@
     </div>
     <div class="about-stats stagger">
       <div class="stat-card">
-        <div class="stat-number" data-target="600">0</div>
+        <div class="stat-number" data-target="1000">0</div>
         <div class="stat-label">SQL Validation Scripts Written</div>
       </div>
       <div class="stat-card">
@@ -479,15 +473,15 @@
     <div class="skill-card">
       <div class="skill-card-title">&#128187; Programming</div>
       <div class="skill-bar-item">
-        <div class="skill-bar-label"><span>Python</span><span>90%</span></div>
+        <div class="skill-bar-label"><span>Python</span></div>
         <div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div>
       </div>
       <div class="skill-bar-item">
-        <div class="skill-bar-label"><span>SQL</span><span>95%</span></div>
+        <div class="skill-bar-label"><span>SQL</span></div>
         <div class="skill-bar-track"><div class="skill-bar-fill" data-width="95"></div></div>
       </div>
       <div class="skill-bar-item">
-        <div class="skill-bar-label"><span>Java</span><span>65%</span></div>
+        <div class="skill-bar-label"><span>Java</span></div>
         <div class="skill-bar-track"><div class="skill-bar-fill" data-width="65"></div></div>
       </div>
     </div>
@@ -507,15 +501,15 @@
     <div class="skill-card">
       <div class="skill-card-title">&#128202; Databases</div>
       <div class="skill-bar-item">
-        <div class="skill-bar-label"><span>Snowflake</span><span>88%</span></div>
+        <div class="skill-bar-label"><span>Snowflake</span></div>
         <div class="skill-bar-track"><div class="skill-bar-fill" data-width="88"></div></div>
       </div>
       <div class="skill-bar-item">
-        <div class="skill-bar-label"><span>Oracle / Teradata</span><span>80%</span></div>
+        <div class="skill-bar-label"><span>Oracle / Teradata</span></div>
         <div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div>
       </div>
       <div class="skill-bar-item">
-        <div class="skill-bar-label"><span>PostgreSQL / MySQL</span><span>82%</span></div>
+        <div class="skill-bar-label"><span>PostgreSQL / MySQL</span></div>
         <div class="skill-bar-track"><div class="skill-bar-fill" data-width="82"></div></div>
       </div>
     </div>
@@ -534,15 +528,15 @@
     <div class="skill-card">
       <div class="skill-card-title">&#9989; Testing &amp; Automation</div>
       <div class="skill-bar-item">
-        <div class="skill-bar-label"><span>ETL / Data Validation</span><span>95%</span></div>
+        <div class="skill-bar-label"><span>ETL / Data Validation</span></div>
         <div class="skill-bar-track"><div class="skill-bar-fill" data-width="95"></div></div>
       </div>
       <div class="skill-bar-item">
-        <div class="skill-bar-label"><span>Selenium / Robot Framework</span><span>80%</span></div>
+        <div class="skill-bar-label"><span>Selenium / Robot Framework</span></div>
         <div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div>
       </div>
       <div class="skill-bar-item">
-        <div class="skill-bar-label"><span>API / UI Testing</span><span>75%</span></div>
+        <div class="skill-bar-label"><span>API / UI Testing</span></div>
         <div class="skill-bar-track"><div class="skill-bar-fill" data-width="75"></div></div>
       </div>
     </div>
@@ -787,31 +781,30 @@
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
   });
 
-  // ── Typing animation ──
+  // ── Smooth fade animation ──
   const lines = [
     'Data Engineer & ETL QA Specialist',
     'Healthcare Data Pipeline Expert',
     'SQL & Python Automation Engineer',
     'Snowflake & AWS Cloud Professional'
   ];
-  let li = 0, ci = 0, deleting = false;
+  let li = 0;
   const el = document.getElementById('heroSub');
-  el.innerHTML = '<span class="cursor"></span>';
+  el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+  el.textContent = lines[0];
 
-  function type() {
-    const line = lines[li];
-    if (!deleting) {
-      ci++;
-      el.innerHTML = line.slice(0, ci) + '<span class="cursor"></span>';
-      if (ci === line.length) { deleting = true; setTimeout(type, 2000); return; }
-    } else {
-      ci--;
-      el.innerHTML = line.slice(0, ci) + '<span class="cursor"></span>';
-      if (ci === 0) { deleting = false; li = (li + 1) % lines.length; setTimeout(type, 400); return; }
-    }
-    setTimeout(type, deleting ? 40 : 65);
+  function showNext() {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(10px)';
+    setTimeout(() => {
+      li = (li + 1) % lines.length;
+      el.textContent = lines[li];
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+      setTimeout(showNext, 3200);
+    }, 700);
   }
-  setTimeout(type, 800);
+  setTimeout(showNext, 3200);
 
   // ── Scroll reveal ──
   const observer = new IntersectionObserver((entries) => {
