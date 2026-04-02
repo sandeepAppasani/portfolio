@@ -236,13 +236,15 @@
     .stat-label { font-size: 12px; color: var(--muted); margin-top: 6px; font-weight: 500; }
 
     /* ── SKILLS ── */
-    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; }
     .skill-card {
       background: white; border: 1px solid var(--border);
       border-radius: 16px; padding: 24px;
       box-shadow: var(--shadow);
       transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
     }
+    .skill-card.wide { grid-column: span 2; }
+    .skill-card.wide .cloud-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .skill-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: var(--accent); }
     .skill-card-title {
       font-size: 13px; font-weight: 800; color: var(--accent);
@@ -486,69 +488,73 @@
       </div>
     </div>
 
-    <div class="skill-card">
-      <div class="skill-card-title">&#9729; Amazon Web Services (AWS)</div>
-      <div style="margin-bottom:10px;">
-        <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Storage &amp; Compute</div>
-        <div class="skill-tags">
-          <span class="tag">S3</span><span class="tag">EC2</span>
-          <span class="tag">Lambda</span><span class="tag">EBS</span>
-          <span class="tag">ECS</span><span class="tag">EKS</span>
+    <div class="skill-card wide">
+      <div class="skill-card-title">&#9729; Amazon Web Services (AWS) &nbsp;<span style="font-size:10px;background:#ff9900;color:white;padding:2px 7px;border-radius:10px;font-weight:700;letter-spacing:0;">AWS</span></div>
+      <div class="cloud-grid">
+        <div>
+          <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Storage &amp; Compute</div>
+          <div class="skill-tags">
+            <span class="tag">S3</span><span class="tag">EC2</span>
+            <span class="tag">Lambda</span><span class="tag">EBS</span>
+            <span class="tag">ECS</span><span class="tag">EKS</span>
+          </div>
         </div>
-      </div>
-      <div style="margin-bottom:10px;">
-        <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Data &amp; Analytics</div>
-        <div class="skill-tags">
-          <span class="tag">Glue</span><span class="tag">Redshift</span>
-          <span class="tag">EMR</span><span class="tag">Athena</span>
-          <span class="tag">Kinesis</span><span class="tag">Lake Formation</span>
+        <div>
+          <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Data &amp; Analytics</div>
+          <div class="skill-tags">
+            <span class="tag">Glue</span><span class="tag">Redshift</span>
+            <span class="tag">EMR</span><span class="tag">Athena</span>
+            <span class="tag">Kinesis</span><span class="tag">Lake Formation</span>
+          </div>
         </div>
-      </div>
-      <div style="margin-bottom:10px;">
-        <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Database</div>
-        <div class="skill-tags">
-          <span class="tag">RDS</span><span class="tag">DynamoDB</span>
-          <span class="tag">Aurora</span>
+        <div>
+          <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Database</div>
+          <div class="skill-tags">
+            <span class="tag">RDS</span><span class="tag">DynamoDB</span>
+            <span class="tag">Aurora</span>
+          </div>
         </div>
-      </div>
-      <div>
-        <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Security &amp; DevOps</div>
-        <div class="skill-tags">
-          <span class="tag">IAM</span><span class="tag">CloudWatch</span>
-          <span class="tag">CloudTrail</span><span class="tag">CloudFormation</span>
+        <div>
+          <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Security &amp; DevOps</div>
+          <div class="skill-tags">
+            <span class="tag">IAM</span><span class="tag">CloudWatch</span>
+            <span class="tag">CloudTrail</span><span class="tag">CloudFormation</span>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="skill-card">
-      <div class="skill-card-title">&#9729; Microsoft Azure</div>
-      <div style="margin-bottom:10px;">
-        <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Storage &amp; Compute</div>
-        <div class="skill-tags">
-          <span class="tag">Blob Storage</span><span class="tag">Azure VMs</span>
-          <span class="tag">Azure Functions</span><span class="tag">AKS</span>
+    <div class="skill-card wide">
+      <div class="skill-card-title">&#9729; Microsoft Azure &nbsp;<span style="font-size:10px;background:#0078d4;color:white;padding:2px 7px;border-radius:10px;font-weight:700;letter-spacing:0;">Azure</span></div>
+      <div class="cloud-grid">
+        <div>
+          <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Storage &amp; Compute</div>
+          <div class="skill-tags">
+            <span class="tag">Blob Storage</span><span class="tag">Azure VMs</span>
+            <span class="tag">Azure Functions</span><span class="tag">AKS</span>
+          </div>
         </div>
-      </div>
-      <div style="margin-bottom:10px;">
-        <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Data &amp; Analytics</div>
-        <div class="skill-tags">
-          <span class="tag">Data Factory</span><span class="tag">Synapse Analytics</span>
-          <span class="tag">Databricks</span><span class="tag">Data Lake Storage</span>
-          <span class="tag">Stream Analytics</span>
+        <div>
+          <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Data &amp; Analytics</div>
+          <div class="skill-tags">
+            <span class="tag">Data Factory</span><span class="tag">Synapse Analytics</span>
+            <span class="tag">Databricks</span><span class="tag">Data Lake Storage</span>
+            <span class="tag">Stream Analytics</span>
+          </div>
         </div>
-      </div>
-      <div style="margin-bottom:10px;">
-        <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Database</div>
-        <div class="skill-tags">
-          <span class="tag">Azure SQL</span><span class="tag">Cosmos DB</span>
-          <span class="tag">Azure PostgreSQL</span>
+        <div>
+          <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Database</div>
+          <div class="skill-tags">
+            <span class="tag">Azure SQL</span><span class="tag">Cosmos DB</span>
+            <span class="tag">Azure PostgreSQL</span>
+          </div>
         </div>
-      </div>
-      <div>
-        <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Security &amp; DevOps</div>
-        <div class="skill-tags">
-          <span class="tag">Azure AD</span><span class="tag">Key Vault</span>
-          <span class="tag">Azure Monitor</span><span class="tag">Azure DevOps</span>
+        <div>
+          <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Security &amp; DevOps</div>
+          <div class="skill-tags">
+            <span class="tag">Azure AD</span><span class="tag">Key Vault</span>
+            <span class="tag">Azure Monitor</span><span class="tag">Azure DevOps</span>
+          </div>
         </div>
       </div>
     </div>
